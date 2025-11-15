@@ -1,0 +1,3 @@
+# Python requirements for the frontend build process
+# This file is intentionally left empty as we don't need any Python packages for the frontend
+# The backend dependencies are already specified in /api/requirements.txt
