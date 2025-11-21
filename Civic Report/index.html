@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="theme-color" content="#D7FFFE" />
+    <title>Civic Mitra | Reporting And Resolving Local Civic Issues</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+    
+    <style>
+      /* Ensure map container has proper dimensions */
+      .leaflet-container {
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+      }
+      
+      /* Fix for map tiles */
+      .leaflet-tile {
+        filter: none !important;
+      }
+      
+      /* Fix for map container in the app */
+      .map-container {
+        width: 100%;
+        height: 60vh;
+        min-height: 400px;
+        position: relative;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Google Translate Widget (auto-translate support) -->
+    <!-- Keep widget mounted for Google Translate to work, but hide UI to avoid blocking chatbot -->
+    <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; display: none; pointer-events: none;" aria-hidden="true"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        if (window.google && window.google.translate) {
+          new window.google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,hi,bn,ta,te,mr,gu,kn,ml,pa,or,ur,as,ne,sd,si,sa,bho,gom,mai,fr,de,es,pt,it,tr,vi,id,ms,th,nl,pl,sv,da,no,cs,el,he,hu,ro,uk,tl,bg,hr,sr,sk,sl,fi,et,lt,lv,am,sw,af,yo,zu,km,lo,my,ar,fa,ru,ja,ko,zh-CN,zh-TW',
+            autoDisplay: true
+          }, 'google_translate_element');
+        }
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="module" src="./src/main.jsx"></script>
+  </body>
+</html>

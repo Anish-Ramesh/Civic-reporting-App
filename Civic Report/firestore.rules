@@ -1,0 +1,67 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper function to check if user is the owner of a document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Helper function to check if a post has too many reports
+    function isReportedPost(post) {
+      return (post.reportCount || 0) >= 30;
+    }
+    
+    // Complaints collection
+    match /complaints/{complaintId} {
+      // Allow read if:
+      // 1. The post has less than 30 reports, OR
+      // 2. The user is the author of the post
+      allow read: if (
+        !isReportedPost(resource.data) ||
+        isOwner(resource.data.authorId)
+      );
+      
+      // Allow create if authenticated
+      allow create: if isAuthenticated();
+      
+      // Allow update if:
+      // 1. User is the author, OR
+      // 2. User is an admin (you can implement admin check if needed)
+      allow update: if isOwner(resource.data.authorId);
+      
+      // Allow delete if user is the author
+      allow delete: if isOwner(resource.data.authorId);
+      
+      // Subcollections
+      match /comments/{commentId} {
+        allow read: if isAuthenticated();
+        allow create: if isAuthenticated();
+        allow update, delete: if isOwner(resource.data.userId);
+      }
+      
+      match /likes/{likeId} {
+        allow read: if isAuthenticated();
+        allow create, delete: if isAuthenticated();
+      }
+    }
+    
+    // Reports collection
+    match /reports/{reportId} {
+      // Only allow users to create reports and view their own reports
+      allow read: if isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+    }
+    
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isOwner(userId);
+    }
+  }
+}

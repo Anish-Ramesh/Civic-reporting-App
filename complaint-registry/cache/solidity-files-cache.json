@@ -1,0 +1,77 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\Anish\\Downloads\\CIVC\\complaint-registry\\contracts\\CivicBlockchain.sol": {
+      "lastModificationDate": 1757826976927,
+      "contentHash": "622263f8a2c5eaacc18723785bd97bc1",
+      "sourceName": "contracts/CivicBlockchain.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "CivicBlockchain"
+      ]
+    },
+    "C:\\Users\\Anish\\Downloads\\CIVC\\complaint-registry\\contracts\\ComplaintRegistry.sol": {
+      "lastModificationDate": 1757826976933,
+      "contentHash": "8f8a8e14b8380a83b4e592e2d6a7cc51",
+      "sourceName": "contracts/ComplaintRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ComplaintRegistry"
+      ]
+    }
+  }
+}
